@@ -13,7 +13,9 @@ RUN apt-get update --fix-missing && \
         git \
         wget && \
     git clone https://github.com/mitre-attack/attack-navigator.git && \
+    cd attack-navigator && \
     git checkout tags/v4.3 && \
+    cd .. && \
     mv attack-navigator/nav-app/* . && \
     rm -rf attack-navigator && \
     cd src/assets && \
