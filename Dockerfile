@@ -23,15 +23,13 @@ RUN apt-get update --fix-missing && \
     wget https://raw.githubusercontent.com/mitre/cti/master/enterprise-attack/enterprise-attack.json && \
     wget https://raw.githubusercontent.com/mitre/cti/master/mobile-attack/mobile-attack.json && \
     wget https://raw.githubusercontent.com/mitre/cti/master/pre-attack/pre-attack.json && \
-    sed -i "s#https://raw.githubusercontent.com/mitre/cti/master/##" config.json && \
-    sed -i "s#enterprise-attack#assets#" config.json && \
-    sed -i "s#mobile-attack#assets#" config.json && \
-    sed -i "s#pre-attack#assets#" config.json && \
     cd ../.. && \
     npm install --unsafe-perm && \
     npm install -g @angular/cli && \
     ng build --output-path /tmp/output && \
     rm -rf /var/lib/apt/lists/*
+
+COPY config.json attack-navigator/src/assets/
 
 USER node
 EXPOSE 4200
