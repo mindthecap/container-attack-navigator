@@ -13,7 +13,7 @@
                 },
                 {
                     "name": "ICS",
-                    "data": ["ics-attack/ics-attack.json"]
+                    "data": ["assets/ics-attack.json"]
                 }
             ]
         }
